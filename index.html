@@ -100,10 +100,6 @@
         }
       }
 
-      @media (max-width: 480px) {
-        .loader {
-          display: none; /* This would hide the loader on small screens */
-        }
       }
     </style>
   </head>
@@ -124,7 +120,7 @@
         });
 
         setTimeout(() => {
-          console.log("Fallback: Hiding loader after 5 seconds");
+          console.log("Fallback: Hiding loader after 3 seconds");
           if (loader) {
             loader.style.display = "none";
           }
