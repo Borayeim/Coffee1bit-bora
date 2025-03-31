@@ -97,12 +97,25 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-y4awm0Xv.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-B8h5eTJX.css">
   </head>
   <body>
     <div id="root"></div>
-    <span class="loader" id="page-loader"></span>
-    <script src="/src/loader.js"></script>
+    <span class="loader" id="page-loader"></span>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const loader = document.getElementById("page-loader");
+
+        // Hide the loader after the page has fully loaded
+        window.addEventListener("load", () => {
+          loader.style.display = "none";
+        });
+
+        // Optionally, show the loader when navigating away
+        window.addEventListener("beforeunload", () => {
+          loader.style.display = "block";
+        });
+      });
+    </script>
   </body>
 </html>
