@@ -1,5 +1,6 @@
 @font-face {
   font-family: Gloria Hallelujah;
+  src: url("/src/assets/fonts/Gloria Hallelujah.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-size: 4rem;
