@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Gloria Hallelujah";
+  src: url("/src/assets/fonts/Gloria Hallelujah.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+}
+
+h1 {
+  font-family: "Gloria Hallelujah", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  color: #6f4e37; /* Dark coffee color */
+  text-align: center; /* Center the text */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Add a subtle shadow */
+  margin-bottom: 4.5rem; /* Add spacing below */
+  line-height: 4.2; /* Adjust line height for better readability */
+  font-size: 4rem; /* Default size for desktop */
+}
+
+@media (max-width: 968px) {
+  h1 {
+    font-size: 6.5rem; /* Smaller font size for tablets */
+  }
+}
+
+@media (max-width: 680px) {
+  h1 {
+    font-size: 6rem; /* Smaller font size for mobile */
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee 1bit</title>
+    <link rel="shortcut icon" type="x-icon" href="/assets/coffee-U_HqHDfv.png" />
+    <link rel="apple-touch-icon" href="/assets/coffee-U_HqHDfv.png" />
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Jersey+10&family=Press+Start+2P&family=Rubik+Bubbles&family=Rubik+Spray+Paint&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 3px solid transparent; /* Transparent border */
+        border-top: 3px solid #e42929; /* Initial color */
+        border-right: 3px solid #f5a623; /* Second color */
+        border-bottom: 3px solid #29e4a2; /* Third color */
+        border-left: 3px solid #2979e4; /* Fourth color */
+        border-radius: 50%;
+        display: inline-block;
+        position: fixed; /* Change to fixed for centering */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+      .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #6f4e37;
+        width: 16px;
+        height: 16px;
+        transform: translate(-50%, 50%);
+        border-radius: 50%;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(1deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      @keyframes colorChange {
+        0% {
+          border-top-color: #e42929;
+          border-right-color: #f5a623;
+          border-bottom-color: #29e4a2;
+          border-left-color: #2979e4;
+        }
+        25% {
+          border-top-color: #f5a623;
+          border-right-color: #29e4a2;
+          border-bottom-color: #2979e4;
+          border-left-color: #e42929;
+        }
+        50% {
+          border-top-color: #29e4a2;
+          border-right-color: #2979e4;
+          border-bottom-color: #e42929;
+          border-left-color: #f5a623;
+        }
+        75% {
+          border-top-color: #2979e4;
+          border-right-color: #e42929;
+          border-bottom-color: #f5a623;
+          border-left-color: #29e4a2;
+        }
+        100% {
+          border-top-color: #e42929;
+          border-right-color: #f5a623;
+          border-bottom-color: #29e4a2;
+          border-left-color: #2979e4;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-y4awm0Xv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B8h5eTJX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <span class="loader" id="page-loader"></span>
+    <script src="/src/loader.js"></script>
+  </body>
+</html>
