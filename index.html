@@ -29,12 +29,13 @@
         border-left: 3px solid #2979e4; /* Fourth color */
         border-radius: 50%;
         display: inline-block;
-        position: fixed; /* Change to fixed for centering */
+        position: fixed; /* Fixed position for centering */
         top: 50%; /* Center vertically */
         left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%);
         box-sizing: border-box;
-        animation: rotation 1s linear infinite;
+        animation: rotation 1s linear infinite, colorChange 3s linear infinite;
+        z-index: 9999; /* Ensure it appears above other elements */
       }
       .loader::after {
         content: "";
@@ -51,7 +52,7 @@
 
       @keyframes rotation {
         0% {
-          transform: rotate(0deg);
+          transform: rotate(1deg);
         }
         100% {
           transform: rotate(360deg);
@@ -98,33 +99,38 @@
           border-left-color: #2979e4;
         }
       }
+
+      @media (max-width: 480px) {
+        .loader {
+          display: none; /* This would hide the loader on small screens */
+        }
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-     <span class="loader" id="page-loader"></span>
+    <span class="loader" id="page-loader"></span>
     <script type="module" src="/src/main.tsx"></script>
-   <script>
+    <script src="src/loader.js"></script>
+    <script>
       document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-  const loader = document.getElementById("page-loader");
+        console.log("DOM fully loaded");
+        const loader = document.getElementById("page-loader");
 
-  // Hide the loader after the page has fully loaded
-  window.addEventListener("load", () => {
-    console.log("Page fully loaded");
-    if (loader) {
-      loader.style.display = "none"; // Hide the loader
-    }
-  });
+        window.addEventListener("load", () => {
+          console.log("Page fully loaded");
+          if (loader) {
+            loader.style.display = "none";
+          }
+        });
 
-  // Fallback: Hide the loader after 5 seconds (in case of an issue)
-  setTimeout(() => {
-    console.log("Fallback: Hiding loader after 5 seconds");
-    if (loader) {
-      loader.style.display = "none";
-    }
-  }, 5000);
-});
+        setTimeout(() => {
+          console.log("Fallback: Hiding loader after 5 seconds");
+          if (loader) {
+            loader.style.display = "none";
+          }
+        }, 5000);
+      });
     </script>
   </body>
 </html>
