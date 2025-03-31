@@ -108,24 +108,36 @@
     <span class="loader" id="page-loader"></span>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("DOM fully loaded");
-        const loader = document.getElementById("page-loader");
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded");
+    const loader = document.getElementById("page-loader");
 
-        window.addEventListener("load", () => {
-          console.log("Page fully loaded");
-          if (loader) {
-            loader.style.display = "none";
-          }
-        });
+    if (!loader) {
+      console.error("Loader not found!");
+      return;
+    }
 
-        setTimeout(() => {
-          console.log("Fallback: Hiding loader after 3 seconds");
-          if (loader) {
-            loader.style.display = "none";
-          }
-        }, 5000);
-      });
-    </script>
+    const hideLoader = () => {
+      console.log("Hiding loader");
+      loader.style.display = "none";
+    };
+
+    // Detect when elements are loaded
+    const observer = new MutationObserver(() => {
+      console.log("Page elements updated");
+      hideLoader();
+      observer.disconnect();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Fallback in case everything fails
+    setTimeout(() => {
+      console.log("Fallback: Hiding loader after 3 seconds");
+      hideLoader();
+    }, 5000);
+  });
+</script>
+
   </body>
 </html>
