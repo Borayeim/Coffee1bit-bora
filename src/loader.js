@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("page-loader");
 
-  // Hide the loader after the page has fully loaded
-  window.addEventListener("load", () => {
-    if (loader) {
-      loader.style.display = "none"; // Hide the loader
-    }
-  });
+  if (!loader) return; // Exit if loader is not found
 
-  // Fallback: Hide the loader after 5 seconds (in case of an issue)
-  setTimeout(() => {
-    if (loader) {
-      loader.style.display = "none";
-    }
-  }, 5000);
+  const hideLoader = () => {
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.visibility = "hidden";
+    }, 500); // Wait for fade-out effect
+  };
+
+  // Hide loader when page fully loads
+  window.addEventListener("load", hideLoader);
+
+  // Fallback: Ensure it hides after 5 seconds
+  setTimeout(hideLoader, 5000);
 });
